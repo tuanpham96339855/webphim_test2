@@ -1,0 +1,38 @@
+<% include ../layout %>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h2>Danh sách phim lẻ</h2>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên phim lẻ</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(i=0 ; i<data.length ; i++) { %>
+                    <tr>
+                        <td><%=i+1%></td>
+                        <td><%=data[i].TenPhimLe%></td>
+                        <td><a href="/admin/phimle/sua/<%-data[i].ID_PhimLe%>">Sửa</a></td>
+                        <td><a onclick="return Del('<%-data[i].TenPhimLe%>')" href="/admin/phimle/xoa/<%-data[i].ID_PhimLe%>">Xóa</a></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+                <a class="btn btn-primary" href="/admin/phimle/them">Thêm phim lẻ</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Del(name)
+    {
+        return confirm("Bạn có chắc chắn muốn xóa:" + name +"?");
+    }
+</script>

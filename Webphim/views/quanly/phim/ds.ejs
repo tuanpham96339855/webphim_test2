@@ -1,0 +1,62 @@
+<% include ../layout %>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h2>Danh sách phim</h2>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên phim</th>
+                        <th>Ảnh</th>
+                        <th>Thời lượng</th>
+                        <th>Số Tập</th>
+                        <th>Quốc Gia</th>
+                        <th>Năm sản xuất</th>
+                        <th>Ngày công chiếu</th>
+                        <th>Thể loại</th>
+                        <th>Đạo diễn</th>
+                        <th>Diễn viên</th>
+                        <th>Diễn viên 2</th>
+                        <th>Lượt xem</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <%
+                  for(i=0; i<data.length; i++) { %>
+                    <tr>
+                      <td><%=i+1%></td>
+                      <td><%-data[i].TenPhim%></td>
+                      <td><img style="width: 100px;" src="../img/<%-data[i].Anh%>"></td>
+                      <td><%-data[i].ThoiLuong%></td>
+                      <td><%-data[i].SoTap%></td>
+                      <td><%-data[i].TenQuocGia%></td>
+                      <td><%-data[i].NamSanXuat%></td>
+                      <td><%-data[i].NgayCongChieu%></td>
+                      <td><%-data[i].TenTheLoai%></td>
+                      <td><%-data[i].TenDaoDien%></td>
+                      <td><%-data[i].TenDienVien%></td>
+                      <td><%-data[i].TenDienVien2%></td>
+                      <td><%-data[i].LuotXem%></td>
+                      <td><a href="/admin/phim/sua/<%-data[i].ID%>">Sửa</a></td>
+                      <td><a onclick="return Del('<%-data[i].TenPhim%>')" href="/admin/phim/xoa/<%-data[i].ID%>">Xóa</a></td>
+                  </tr>
+                  <% }
+                  %>
+                </tbody>
+            </table>
+                <a class="btn btn-primary" href="/admin/phim/them">Thêm phim</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Del(name)
+    {
+        return confirm("Bạn có chắc chắn muốn xóa phim:" + name +"?");
+    }
+</script>

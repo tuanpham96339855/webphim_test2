@@ -1,0 +1,38 @@
+<% include ../layout %>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h2>Danh sách quốc tịch</h2>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên quốc tịch</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(i=0 ; i<data.length ; i++) { %>
+                    <tr>
+                        <td><%=i+1%></td>
+                        <td><%=data[i].TenQuocTich%></td>
+                        <td><a href="/admin/quoctich/sua/<%-data[i].ID_QuocTich%>">Sửa</a></td>
+                        <td><a onclick="return Del('<%-data[i].TenQuocTich%>')" href="/admin/quoctich/xoa/<%-data[i].ID_QuocTich%>">Xóa</a></td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+                <a class="btn btn-primary" href="/admin/quoctich/them">Thêm quốc tịch</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Del(name)
+    {
+        return confirm("Bạn có chắc chắn muốn xóa quốc tịch:" + name +"?");
+    }
+</script>

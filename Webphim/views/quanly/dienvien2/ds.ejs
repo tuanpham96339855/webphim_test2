@@ -1,0 +1,54 @@
+<% include ../layout %>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h2>Danh sách diễn viên 2</h2>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>STT</th>
+                        <th>Tên diễn viên</th>
+                        <th>Ảnh</th>
+                        <th>Ngày sinh</th>
+                        <th>Nơi sinh</th>
+                        <th>Quốc tịch</th>
+                        <th>Chiều cao</th>
+                        <th>Cân nặng</th>
+                        <th>Nghề nghiệp</th>
+                        <th>Hoạt động </th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(i=0 ; i<data.length ; i++) { %>
+                        <tr>
+                            <td><%=i+1%></td>
+                            <td><%=data[i].TenDienVien2%></td>
+                            <td><img style="width: 100px;" src="../img/<%=data[i].Anh_DV2%>"></td>
+                            <td><%=data[i].NgaySinh%></td>
+                            <td><%=data[i].NoiSinh%></td>
+                            <td><%=data[i].TenQuocTich%></td>
+                            <td><%=data[i].ChieuCao%></td>
+                            <td><%=data[i].CanNang%></td>
+                            <td><%=data[i].TenNgheNghiep%></td>
+                            <td><%=data[i].HoatDong%></td>
+                            <td><a href="/admin/dienvien2/sua/<%=data[i].ID_DienVien2%>">Sửa</a></td>
+                            <td><a onclick="return Del('<%=data[i].TenDienVien2%>')" href="/admin/dienvien2/xoa/<%=data[i].ID_DienVien2%>">Xóa</a></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+                <a class="btn btn-primary" href="/admin/dienvien2/them">Thêm diễn viên</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Del(name)
+    {
+        return confirm("Bạn có chắc chắn muốn xóa diễn viên:" + name +"?");
+    }
+</script>

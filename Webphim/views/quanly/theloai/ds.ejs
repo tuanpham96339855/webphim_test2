@@ -1,0 +1,40 @@
+<% include ../layout %>
+<div class="container-fluid">
+  <div class="card">
+      <div class="card-header">
+          <h2>Danh sách thể loại</h2>
+      </div>
+      <div class="card-body">
+          <table class="table">
+              <thead class="thead-dark">
+                  <tr>
+                      <th>STT</th>
+                      <th>Tên thể loại</th>
+                      <th>Sửa</th>
+                      <th>Xóa</th>
+                  </tr>
+              </thead>
+              <tbody>
+                <%
+                for(i=0; i<data.length; i++) { %>
+                    <tr>
+                        <td><%=i+1%></td>
+                        <td><%-data[i].TenTheLoai%></td>
+                        <td><a href="/admin/theloai/sua/<%-data[i].ID_TheLoai%>">Sửa</a></td>
+                        <td><a onclick="return Del('<%-data[i].TenTheLoai%>')" href="/admin/theloai/xoa/<%-data[i].ID_TheLoai%>">Xóa</a></td>
+                    </tr>
+                    <% }
+                    %>
+              </tbody>
+          </table>
+              <a class="btn btn-primary" href="/admin/theloai/them">Thêm thể loại</a>
+      </div>
+  </div>
+</div>
+
+<script>
+  function Del(name)
+  {
+      return confirm("Bạn có chắc chắn muốn xóa thể loại:" + name +"?");
+  }
+</script>

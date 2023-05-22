@@ -1,0 +1,216 @@
+<% include layout/mo %>
+
+<% for (phim of ctphim){ %>
+<div class="container">
+    <div class="title">
+        <ul>
+            <li><a href="/" style="color:yellow;">Trang Chủ /</a></li>
+            <li><a href="/theloai_phim/<%=phim.ID_TheLoai%>" style="color:yellow;"><%=phim.TenTheLoai%> /</a></li>
+            <li><a href="" style="color: whitesmoke;"> <%=phim.TenPhim%></a></li>
+        </ul>
+    </div>
+</div>
+<div class="container1">
+    <div class="left">
+        <div class="poster">
+            <img src="../img/<%=phim.Anh%>"/> 
+        </div>
+        <div class="ptright">
+            <div class="topr">
+                <b><%=phim.TenPhim%></b>
+            </div>
+            <div class="btnr">
+                <p>Thời lượng: <%=phim.ThoiLuong%></p>
+                <p>Số tập: <%=phim.SoTap%></p>
+                <p>Quốc gia: <a style="text-decoration:none; color:white;" href="/quocgia_phim/<%=phim.ID_QuocGia%>"><%=phim.TenQuocGia%></a></p>
+                <p>Năm sản xuất: <%=phim.NamSanXuat%></p>
+                <p>Ngày công chiếu: <%=phim.NgayCongChieu%></p>
+                <p>Thể loại: <a style="text-decoration:none; color:white;" href="/theloai_phim/<%=phim.ID_TheLoai%>"><%=phim.TenTheLoai%></a></p>
+                <p>Đạo diễn: <a><%=phim.TenDaoDien%></a></p>
+                <p>Tên diễn viên:
+                    <a style="text-decoration:none; color:white;" href="/chitietdv/<%=phim.ID_DienVien%>"><%=phim.TenDienVien%></a>,
+                    <a style="text-decoration:none; color:white;" href="/chitietdv2/<%=phim.ID_DienVien2%>"><%=phim.TenDienVien2%></a>
+                </p>
+                <p>Lượt xem: <%=phim.LuotXem%></p>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="container2">
+    <div class="review">
+        <p>Review nhanh về phim <%=phim.TenPhim%></p>
+    </div>
+    <div class="NDphim">
+        <h1>Nội dung phim</h1>
+        <p><%=phim.MoTa_p%></p>
+    </div>
+    <div class="trailer">
+        <p>Xem phim: <%=phim.TenPhim%></p>
+    </div>
+    <div class="trailerphim">
+        <video id="videos" width="1200px" height="500px" controls>
+            <source src="../video/<%=phim.Video%>" >
+        </video>
+    </div>
+</div>
+<% } %>
+<% include slider/slider2 %>
+<% include layout/ket %>
+<style>
+    .container {
+        width: 1200px;
+        height: 40px;
+        background-color: #0c2738;
+        margin-top: 20px;
+        border: 1px solid #081b27;
+        border-radius: 5px;
+    }
+
+        .container .title ul li {
+            display: block;
+            list-style: none;
+            float: left;
+            text-decoration: none;
+        }
+
+            .container .title ul li a {
+                text-decoration: none;
+                line-height: 20px;
+                padding: 10px 50px 10px 10px;
+                font-size: 23px;
+                margin-left: -40px;
+            }
+
+    .container1 {
+        width: 1200px;
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .container1 .left {
+            width: 1200px;
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+            .container1 .left .poster {
+                width: 400px;
+            }
+
+                    .container1 .left .poster img {
+                        height: 500px;
+                        width: 400px;
+                        border-radius: 5%;
+                        -moz-border-radius: 5%;
+                        -webkit-border-radius: 5%;
+                    }
+                    .container1 a {
+                        padding: 13px 13px 13px 13px;
+                    }
+        .container1 .ptright {
+            width: 750px;
+            margin-left: 50px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+            .container1 .ptright .topr {
+                width: 750px;
+                color: white;
+ 
+            }
+                .container1 .ptright .topr b {
+                    font-size: 65px;
+                }
+
+                .container1 .ptright .btnr p {
+                    color: white;
+                    font-size: 20px;
+                }
+    .container2{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-top: 70px;
+    }
+    .review p {
+        color: yellow;
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .NDphim h1 {
+        color: #ffffff;
+        font-size: 30px;
+        margin-top: 42px;
+    }
+
+    .NDphim p {
+        color: #899ead;
+        font-size: 19px;
+    }
+
+    .anhND img {
+        width: 700px;
+        height: 600px;
+        margin-top: 40px;
+        border-radius: 2%;
+        -moz-border-radius: 2%;
+        -webkit-border-radius: 2%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .DVchinh h1 {
+        color: #ffffff;
+        font-size: 30px;
+        margin-top: 60px;
+        text-align: center;
+    }
+
+    .DVchinh .tranthanh h4 {
+        color: #899ead;
+        font-size: 23px;
+    }
+
+    .DVchinh .tranthanh p {
+        color: #899ead;
+        font-size: 19px;
+    }
+
+    .DVchinh .tuantran h4 {
+        color: #899ead;
+        font-size: 23px;
+        margin-top: 10px;
+    }
+
+    .DVchinh .tuantran p {
+        color: #899ead;
+        font-size: 19px;
+    }
+
+    .gachngang hr {
+        margin-top: 50px;
+        margin-left: 159px;
+    }
+
+    .trailer p {
+        color: yellow;
+        font-size: 25px;
+        margin-top: 40px;
+        margin-left: 155px;
+    }
+
+    .trailerphim video {
+        width: 1200px;
+        height: 500px;
+        margin-top: 20px;
+        border-radius: 2%;
+        -moz-border-radius: 2%;
+        -webkit-border-radius: 2%;
+    }
+            
+</style>
+

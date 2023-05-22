@@ -1,0 +1,17 @@
+<% include ../layout %>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h2>Sửa nghề nghiệp</h2>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="" >
+                <div class="form-group">
+                    <label for="">Tên nghề nghiệp</label>
+                    <input type="text" name="TenNgheNghiep" class="form-control" required value="<%-data.TenNgheNghiep%>">
+                </div>
+                <button name="sbm" class="btn btn-success" type="submit">Sửa</button>
+            </form>
+        </div>
+    </div>
+</div>

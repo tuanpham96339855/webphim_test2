@@ -1,0 +1,109 @@
+<% include ../layout %>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h2>Thêm phim</h2>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="" >
+            <div class="form-group">
+                    <label for="">Tên phim</label>
+                    <input type="text" name="TenPhim" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Ảnh</label> <br>
+                    <input type="file" name="Anh">
+                </div>
+                <div class="form-group">
+                    <label for="">Thời lượng</label>
+                    <input type="text" name="ThoiLuong" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Số tập</label>
+                    <input type="number" name="SoTap" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Phim lẻ</label>
+                    <select class="form-control" name="PhimLe">
+                        <%
+                        for (pl of phimle){ %>
+                            <option value="<%=pl.ID_PhimLe%>"><%=pl.TenPhimLe%></option>
+                        <% }
+                        %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Quốc gia</label>
+                    <select class="form-control" name="QuocGia">
+                        <%
+                        for (qg of quocgia){ %>
+                            <option value="<%=qg.ID_QuocGia%>"><%=qg.TenQuocGia%></option>
+                        <% }
+                        %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Năm sản xuất</label>
+                    <input type="date" name="NamSanXuat" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Ngày công chiếu</label>
+                    <input type="date" name="NgayCongChieu" class="form-control" required>
+                </div>
+                <div class="form-group">
+                <label for="">Thể loại</label>
+                    <select class="form-control" name="TheLoai">
+                        <%
+                        for (tl of theloai){ %>
+                            <option value="<%=tl.ID_TheLoai%>"><%=tl.TenTheLoai%></option>
+                        <% }
+                        %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Đạo diễn</label>
+                    <select class="form-control" name="DaoDien">
+                        <%
+                        for (dd of daodien){ %>
+                            <option value="<%=dd.ID_DaoDien%>"><%=dd.TenDaoDien%></option>
+                        <% }
+                        %>
+                    </select>
+                </div>
+                <div class="form-group">
+                <label for="">Diễn viên</label>
+                    <select class="form-control" name="DienVien">
+                        <%
+                        for (dv of dienvien){ %>
+                            <option value="<%=dv.ID_DienVien%>"><%=dv.TenDienVien%></option>
+                        <% }
+                        %>
+                    </select>
+                </div>
+                <div class="form-group">
+                <label for="">Diễn viên 2</label>
+                    <select class="form-control" name="DienVien2">
+                        <%
+                        for (dv2 of dienvien2){ %>
+                            <option value="<%=dv2.ID_DienVien2%>"><%=dv2.TenDienVien2%></option>
+                        <% }
+                        %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Video</label> <br>
+                    <input type="file" name="Video">
+                </div>
+                <div class="form-group">
+                    <label for="">Lượt xem</label>
+                    <input type="text" name="LuotXem" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Mô tả</label>
+                    <input type="text" name="MoTa_p" class="form-control" required>
+                </div>
+                <button name="sbm" class="btn btn-success" type="submit">Thêm</button>
+            </form>
+        </div>
+    </div>
+</div>

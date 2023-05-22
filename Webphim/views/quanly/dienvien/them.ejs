@@ -1,0 +1,66 @@
+<% include ../layout %>
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h2>Thêm diễn viên</h2>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="">
+            <div class="form-group">
+                    <label for="">Tên diễn viên</label>
+                    <input type="text" name="TenDienVien" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Ảnh</label> <br>
+                    <input type="file" name="Anh_DV">
+                </div>
+                <div class="form-group">
+                    <label for="">Ngày sinh</label>
+                    <input type="date" name="NgaySinh" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Nơi sinh</label>
+                    <input type="text" name="NoiSinh" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Quốc tịch</label>
+                    <select class="form-control" name="QuocTich">
+                        <%
+                        for (qt of quoctich){ %>
+                            <option value="<%=qt.ID_QuocTich%>"><%=qt.TenQuocTich%></option>
+                        <% }
+                        %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Chiều cao</label>
+                    <input type="text" name="ChieuCao" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Cân nặng</label>
+                    <input type="text" name="CanNang" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Nghề nghiệp</label>
+                    <select class="form-control" name="NgheNghiep">
+                        <%
+                        for (nn of nghenghiep){ %>
+                            <option value="<%=nn.ID_NgheNghiep%>"><%=nn.TenNgheNghiep%></option>
+                        <% }
+                        %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Hoạt động</label>
+                    <input type="text" name="HoatDong" class="form-control" required>
+                </div>
+                <div class="form-group">
+                <div class="form-group">
+                    <label for="">Mô tả</label>
+                    <input type="text" name="MoTa_dv" class="form-control" required>
+                </div>
+                <button name="sbm" class="btn btn-success" type="submit">Thêm</button>
+            </form>
+        </div>
+    </div>
+</div>
